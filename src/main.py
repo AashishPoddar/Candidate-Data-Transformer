@@ -1,8 +1,9 @@
-from parser.csv_parser import CSVParser
+from parser.resume_parser import ResumeParser
 
 
 def main():
-    parser = CSVParser("input/recruiter.csv")
+
+    parser = ResumeParser("input/resume.pdf")
 
     data = parser.parse()
 
