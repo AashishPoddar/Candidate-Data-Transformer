@@ -1,10 +1,12 @@
 from parser.csv_parser import CSVParser
 from parser.resume_parser import ResumeParser
-
 from normalizer.phone import PhoneNormalizer
 from normalizer.email import EmailNormalizer
 from merger.merge import MergeEngine
 from confidence.confidence import ConfidenceEngine
+from config_loader import ConfigLoader
+from projection.projector import Projector
+
 import json
 
 
@@ -40,18 +42,27 @@ def main():
     print(csv_records)
 
     merged_profile = MergeEngine.merge(
-    resume_data,
-    csv_records
+        resume_data,
+        csv_records
     )
     merged_profile = ConfidenceEngine.generate(
-    merged_profile
+        merged_profile
+    )
+
+    config = ConfigLoader.load(
+        "config/default_config.json"
+    )
+
+    final_output = Projector.project(
+        merged_profile,
+        config
     )
 
     print("\nFinal Candidate Profile\n")
 
     print(
         json.dumps(
-            merged_profile,
+            final_output,
             indent=4
         )
     )

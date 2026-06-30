@@ -1,0 +1,11 @@
+{
+    "fields": [
+        "full_name",
+        "email",
+        "phone",
+        "current_company",
+        "title",
+        "provenance",
+        "confidence"
+    ]
+}
