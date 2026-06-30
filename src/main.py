@@ -1,13 +1,13 @@
-from parser.resume_parser import ResumeParser
+from normalizer.phone import PhoneNormalizer
 
 
 def main():
 
-    parser = ResumeParser("input/resume.pdf")
+    phone = "+91-9798608038"
 
-    data = parser.parse()
+    normalized = PhoneNormalizer.normalize(phone)
 
-    print(data)
+    print(normalized)
 
 
 if __name__ == "__main__":
