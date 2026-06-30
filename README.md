@@ -105,6 +105,15 @@ git clone https://github.com/AashishPoddar/Candidate-Data-Transformer.git
 cd Candidate-Data-Transformer
 ```
 
+Create a virtual environment (recommended)
+
+```bash
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+```
+
 Install dependencies
 
 ```bash
@@ -202,12 +211,12 @@ Validation includes:
 
 ## Future Improvements
 
-- GitHub Profile Integration
-- LinkedIn Profile Integration
 - OCR Support for Scanned Resumes
 - AI-based Skill Extraction
 - Dynamic Confidence Scoring
 - Duplicate Candidate Detection
+- LinkedIn Profile Integration
+- GitHub Profile Integration
 
 ---
 
@@ -225,4 +234,4 @@ docs/Candidate_Data_Transformer_Technical_Design.pdf
 
 **Aashish Poddar**
 
-Eightfold AI Candidate Data Transformer Assignment
+Developed as part of the **Eightfold AI Candidate Data Transformer Assignment**.
