@@ -4,6 +4,8 @@ from parser.resume_parser import ResumeParser
 from normalizer.phone import PhoneNormalizer
 from normalizer.email import EmailNormalizer
 from merger.merge import MergeEngine
+from confidence.confidence import ConfidenceEngine
+import json
 
 
 def main():
@@ -41,9 +43,18 @@ def main():
     resume_data,
     csv_records
     )
+    merged_profile = ConfidenceEngine.generate(
+    merged_profile
+    )
 
-    print("\nMerged Profile")
-    print(merged_profile)
+    print("\nFinal Candidate Profile\n")
+
+    print(
+        json.dumps(
+            merged_profile,
+            indent=4
+        )
+    )
 
 
 if __name__ == "__main__":
