@@ -8,6 +8,7 @@ from config_loader import ConfigLoader
 from projection.projector import Projector
 from validator import Validator
 
+import argparse
 import json
 import os
 
@@ -51,9 +52,19 @@ def main():
         merged_profile
     )
 
-    config = ConfigLoader.load(
-        "config/default_config.json"
+    parser = argparse.ArgumentParser(
+        description="Candidate Data Transformer"
     )
+
+    parser.add_argument(
+        "--config",
+        default="config/default_config.json",
+        help="Configuration file"
+    )
+
+    args = parser.parse_args()
+
+    config = ConfigLoader.load(args.config)
 
     final_output = Projector.project(
         merged_profile,
