@@ -38,12 +38,6 @@ def main():
         resume_data["email"]
     )
 
-    print("\nResume Data")
-    print(resume_data)
-
-    print("\nCSV Records")
-    print(csv_records)
-
     merged_profile = MergeEngine.merge(
         resume_data,
         csv_records
