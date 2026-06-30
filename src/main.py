@@ -6,8 +6,10 @@ from merger.merge import MergeEngine
 from confidence.confidence import ConfidenceEngine
 from config_loader import ConfigLoader
 from projection.projector import Projector
+from validator import Validator
 
 import json
+import os
 
 
 def main():
@@ -58,6 +60,21 @@ def main():
         config
     )
 
+    if Validator.validate(final_output):
+
+        os.makedirs("output", exist_ok=True)
+
+        with open(
+            "output/final_output.json",
+            "w"
+        ) as file:
+
+            json.dump(
+                final_output,
+                file,
+                indent=4
+            )
+
     print("\nFinal Candidate Profile\n")
 
     print(
@@ -65,6 +82,12 @@ def main():
             final_output,
             indent=4
         )
+    )
+
+    print("\nOutput saved successfully.")
+
+    print(
+        "Location: output/final_output.json"
     )
 
 
